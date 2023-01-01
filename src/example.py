@@ -2,7 +2,7 @@ import logging
 
 from sanic import Sanic
 
-from sanic_restful import Api, ApiEndpoint
+from sanic_simple_restful import Api, ApiEndpoint
 
 logger = logging.getLogger(__name__)
 

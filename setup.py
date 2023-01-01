@@ -29,7 +29,7 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='sanic_restful',
+    name='sanic_simple_restful',
     version='0.1.0',
     license='MIT license',
     description='A simple class-based view for Sanic for simple RESTful APIs',
@@ -38,11 +38,12 @@ setup(
     #     re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     # ),
     long_description=read('README.md'),
+    long_description_content_type="text/markdown",
     author='Sergei Beilin',
     author_email='saabeilin@gmail.com',
     url='https://github.com/saabeilin/sanic-restful',
     # packages=find_packages('src'),
-    packages=['sanic_restful'],
+    packages=['sanic_simple_restful'],
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     include_package_data=True,
@@ -59,6 +60,10 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Utilities',
