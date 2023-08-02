@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+
+
+jobs:
+  code-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install tools
+        run: pip3 install flake8 mypy isort black
+      - name: Run flake8
+        run: python3 -m flake8  --show-source --count --statistics src/
+      - name: Run mypy
+        run: mypy src/ --show-error-context --ignore-missing-imports --check-untyped-defs --disallow-incomplete-defs
+        continue-on-error: true
+      - name: Run black check
+        run: black --check --target-version py311 src/
+      - name: Run isort check
+        run: isort src/ --check
+
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: ["3.9", "3.10", "3.11"]
+        sanic_version: ["23.3.0", "23.6.0"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python_version }}
+      - name: install requirements
+        run: pip3 install pytest pytest-cov sanic==${{ matrix.sanic_version }}
+      - name: Run unit-tests
+        run: pytest -v
