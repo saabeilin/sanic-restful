@@ -1,4 +1,4 @@
-from http import HTTPMethod
+from sanic.constants import HTTPMethod
 
 from sanic_simple_restful import ApiEndpoint
 

@@ -4,8 +4,8 @@ import typing
 from functools import wraps
 
 import sanic
-from sanic.blueprints import Blueprint
 from sanic import response
+from sanic.blueprints import Blueprint
 from sanic.constants import HTTP_METHODS
 from sanic.views import HTTPMethodView
 
@@ -133,16 +133,14 @@ class Api(object):
         prefix="",
         decorators=None,
     ):
-        self.urls = {}
         self.prefix = prefix
         self.decorators = decorators or []
         self.endpoints = set(endpoints)
-        self.resources = []
         self.app = app
 
         # TODO: late initialization?
-        for endpoints in self.endpoints:
-            self.add_endpoints(endpoints)
+        for endpoint in self.endpoints:
+            self.add_endpoints(endpoint)
 
     def add_endpoints(self, api_endpoint: ApiEndpoint):
         view_instance = self.output(api_endpoint.as_view())
