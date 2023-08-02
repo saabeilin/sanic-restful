@@ -16,8 +16,7 @@ from setuptools import setup
 
 def read(*names, **kwargs):
     return io.open(
-        join(dirname(__file__), *names),
-        encoding=kwargs.get('encoding', 'utf8')
+        join(dirname(__file__), *names), encoding=kwargs.get("encoding", "utf8")
     ).read()
 
 
@@ -29,47 +28,44 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='sanic_simple_restful',
-    version='0.1.0',
-    license='MIT license',
-    description='A simple class-based view for Sanic for simple RESTful APIs',
+    name="sanic_simple_restful",
+    version="0.2.0",
+    license="MIT license",
+    description="A simple class-based view for Sanic for simple RESTful APIs",
     # long_description='%s\n%s' % (
     #     re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
     #     re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     # ),
-    long_description=read('README.md'),
+    long_description=read("README.md"),
     long_description_content_type="text/markdown",
-    author='Sergei Beilin',
-    author_email='saabeilin@gmail.com',
-    url='https://github.com/saabeilin/sanic-restful',
+    author="Sergei Beilin",
+    author_email="saabeilin@gmail.com",
+    url="https://github.com/saabeilin/sanic-restful",
     # packages=find_packages('src'),
-    packages=['sanic_simple_restful'],
-    package_dir={'': 'src'},
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
+    packages=["sanic_simple_restful"],
+    package_dir={"": "src"},
+    py_modules=[splitext(basename(path))[0] for path in glob("src/*.py")],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 3 - Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
-        'Operating System :: Unix',
-        'Operating System :: POSIX',
-        'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
-        'Topic :: Utilities',
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: Unix",
+        "Operating System :: POSIX",
+        "Operating System :: Microsoft :: Windows",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Topic :: Utilities",
     ],
-    keywords=[
-        'sanic', 'authentication'
-    ],
-    install_requires=['sanic']
+    keywords=["sanic", "authentication"],
+    install_requires=["sanic"],
 )
